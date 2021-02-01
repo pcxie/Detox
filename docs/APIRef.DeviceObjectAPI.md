@@ -23,6 +23,7 @@ The value will be `undefined` until the device is properly _prepared_ (i.e. in `
 
 - [`device.launchApp()`](#devicelaunchappparams)
 - [`device.setLaunchArg(name, value)`](#devicesetlaunchargname-value)
+- [`device.setLaunchArgs(args)`](#devicesetlaunchargsargs)
 - [`device.clearLaunchArg(name)`](#deviceclearlaunchargname)
 - [`device.terminateApp()`](#deviceterminateapp)
 - [`device.sendToHome()`](#devicesendtohome)
@@ -221,6 +222,12 @@ await device.launchApp({
 Set a launch-argument (name & value) to bundle alongside launch-arguments specified in any future call to `device.launchApp()`. 
 
 Equivalent to specifying on-site `launchArgs` to `device.launchApp()`, but is set ahead-of-time rather than on-site - thus allowing for a gradual, multi-phased setup of a test environment, typically suitable for complex apps.
+
+> Note: Setting `value` to `undefined` will result in the clearing of the associated launch-argument.
+
+### `device.setLaunchArgs(args)`
+
+Same as `setLaunchArg(name, value)`, but allows for the setting (or clearing) of multiple arguments (names & values) in one go.
 
 ### `device.clearLaunchArg(name)`
 
